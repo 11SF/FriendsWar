@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FriendsWar</string>
+    <string name="add_player_label">เพิ่มชื่อ...</string>
+    <string name="add_btn_label">+</string>
+    <string name="next_btn_label">ต่อไป ></string>
+    <string name="next_player_label">คนต่อไป ></string>
+    <string name="shake_it_btn_label">Shake it</string>
+    <string name="call_me_btn_label">Call me</string>
+    <string name="chichi_btn_label">ChiChi</string>
+    <string name="chichi_add_order">เพิ่มคำสั่ง...</string>
+    <string name="chichi_order">คำสั่งก็คือ...</string>
+    <string name="play_game">เล่นเกม</string>
+    <string name="start">เริ่ม</string>
+    <string name="see">ดูผล</string>
+    <string name="add_player_page">จัดการผู้เล่น</string>
+
+
+</resources>

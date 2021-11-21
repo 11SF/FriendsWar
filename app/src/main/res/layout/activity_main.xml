@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_player_page"
+        android:onClick="toAddPlayerPage" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/main_logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="100dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="35dp">
+
+        <TextView
+            android:id="@+id/player_size_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <android.widget.Button
+            android:id="@+id/shake_it_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/main_menu_btn"
+            android:onClick="shakeItBtn"
+            android:text="@string/shake_it_btn_label"
+            android:textColor="#0D47A1" />
+
+        <android.widget.Button
+            android:id="@+id/call_me_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/main_menu_btn"
+            android:text="@string/call_me_btn_label"
+            android:textColor="#0D47A1"
+            android:onClick="callMeBtn"/>
+
+        <android.widget.Button
+            android:id="@+id/chichi_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/main_menu_btn"
+            android:text="@string/chichi_btn_label"
+            android:textColor="#0D47A1"
+            android:onClick="chichiBtn"/>
+    </LinearLayout>
+
+
+</FrameLayout>

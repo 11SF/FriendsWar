@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bg_add_player"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_layered_waves_haikei"
+    android:orientation="horizontal"
+    tools:context=".AddPlayers">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/star"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:padding="35dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <EditText
+                android:id="@+id/inputPlayerName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:hint="@string/add_player_label"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:singleLine="false"
+                android:textColor="@color/white"
+                android:textColorHint="#F6F6F6"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <android.widget.Button
+                android:id="@+id/add_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/main_menu_btn"
+                android:backgroundTint="@color/white"
+                android:enabled="false"
+                android:onClick="addPlayer"
+                android:text="@string/add_btn_label"
+                android:textAlignment="center"
+                android:textColor="#B8B8B8"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_of_player"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="130dp"
+            tools:listitem="@layout/list_name_item" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/transparent"
+        android:onClick="nextBtn"
+        android:text="@string/next_btn_label"
+        android:textSize="20sp"
+        android:visibility="invisible" />
+
+
+</FrameLayout>

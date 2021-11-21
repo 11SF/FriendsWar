@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.friendswar">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/generalNoTitle">
+        <activity
+            android:name=".SelectOrderTemplate"
+            android:exported="false" />
+        <activity
+            android:name=".AddOrderPage"
+            android:exported="true" />
+        <activity
+            android:name=".ChichiSticks"
+            android:exported="false" />
+        <activity
+            android:name=".CallMe"
+            android:exported="false" />
+        <activity
+            android:name=".ShakeIt"
+            android:exported="false" />
+        <activity
+            android:name=".AddPlayers"
+            android:exported="false"
+            android:theme="@style/generalNoTitle" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true"
+            android:theme="@style/generalNoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
