@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,9 +42,7 @@ public class AddPlayers extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_players);
         next  = findViewById(R.id.nextBtn);
-        //Play sound
-        player = MediaPlayer.create(getApplicationContext(), R.raw.mock);
-        player.start();
+
         //show player list
         recyclerView = (RecyclerView) findViewById(R.id.list_of_player);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -77,6 +76,49 @@ public class AddPlayers extends AppCompatActivity {
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {}
         });
+        textName.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+               if(keyEvent.getAction() == keyEvent.ACTION_DOWN && i == keyEvent.KEYCODE_ENTER ) {
+                   EditText textName = findViewById(R.id.inputPlayerName);
+                   pcl.createPlayer(textName.getText().toString());
+                   textName.setText("");
+                   ArrayList<Player> p = pcl.getPlayers();
+                   if(p.size()>0) {
+                       Button next = findViewById(R.id.nextBtn);
+                       next.setVisibility(View.VISIBLE);
+                   } else {
+                       Button next = findViewById(R.id.nextBtn);
+                       next.setVisibility(View.INVISIBLE);
+                   }
+                   FrameLayout bg = findViewById(R.id.bg_add_player);
+                   InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                   imm.hideSoftInputFromWindow(bg.getWindowToken(), 0);
+                   return true;
+               }
+               return false;
+            }
+        });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        player.stop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        player = MediaPlayer.create(getApplicationContext(), R.raw.mock);
+        player.start();
+        player.setLooping(true);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        player.stop();
     }
 
     public void addPlayer(View view) {

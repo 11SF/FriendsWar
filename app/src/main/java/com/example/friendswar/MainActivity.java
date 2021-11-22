@@ -21,9 +21,20 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         TextView playerSize = findViewById(R.id.player_size_text);
         playerSize.setText("จำนวนผู้เล่น " + String.valueOf(pcl.getPlayerSize()) + " คน");
-        //Play sound
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        player.stop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         player = MediaPlayer.create(getApplicationContext(), R.raw.minimal_lo_fi);
         player.start();
+        player.setVolume(200,200);
         player.setLooping(true);
     }
 
@@ -38,12 +49,17 @@ public class MainActivity extends AppCompatActivity {
         player.stop();
     }
     public void chichiBtn (View v) {
-        Intent myIntent = new Intent(this, AddOrderPage.class);
+        Intent myIntent = new Intent(this, SelectOrderTemplate.class);
         startActivity(myIntent);
         player.stop();
     }
     public void toAddPlayerPage (View v) {
         Intent myIntent = new Intent(this, AddPlayers.class);
+        startActivity(myIntent);
+        player.stop();
+    }
+    public void toTutorialPage (View v) {
+        Intent myIntent = new Intent(this, TutorialPage.class);
         startActivity(myIntent);
         player.stop();
     }

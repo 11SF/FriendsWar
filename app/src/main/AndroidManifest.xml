@@ -11,30 +11,51 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/generalNoTitle">
+
+        <activity
+            android:name=".WinnerCallMe"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".WinnerShakeIt"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".TutorialPage"
+            android:screenOrientation="portrait"
+            android:exported="false" />
         <activity
             android:name=".SelectOrderTemplate"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".AddOrderPage"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".ChichiSticks"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".CallMe"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ShakeIt"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".AddPlayers"
+            android:screenOrientation="portrait"
             android:exported="false"
             android:theme="@style/generalNoTitle" />
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:theme="@style/generalNoTitle">
             <intent-filter>

@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="purple">#261A3B</color>
     <color name="yellow">#FFAB4C</color>
+    <color name="soda_slow">#3595D5</color>
+    <color name="soda_medium">#FF9800</color>
+    <color name="soda_fast">#F44336</color>
 </resources>
+

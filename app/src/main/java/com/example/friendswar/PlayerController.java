@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class PlayerController {
     private int playerId = 0;
     private int playerTurn = 0;
+    private Player winner;
     ArrayList<Player> players = new ArrayList<Player>();
 
     public void createPlayer(String name) {
@@ -50,5 +51,22 @@ public class PlayerController {
             playerTurn = 0;
         }
         return players.get(playerTurn++);
+    }
+    public void resetPlayerTurn() {
+        playerTurn = 0;
+    }
+
+    public void clearScorePlayer() {
+        for(int i=0; i<players.size();i++) {
+            players.get(i).setPlayerScore(0);
+        }
+    }
+
+    public void setWinner(Player p) {
+        this.winner = p;
+    }
+
+    public Player getWinner() {
+        return winner;
     }
 }

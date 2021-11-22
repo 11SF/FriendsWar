@@ -34,10 +34,10 @@ public class CallMe extends AppCompatActivity implements SensorEventListener {
     Random rn = new Random();
     SensorInfo sensor_info = new SensorInfo();
     TextView textName;
-    TextView textValue;
     Button nextPlayer;
     Button startBtn;
     Button seeWinner;
+    TextView warning;
     MediaPlayer ringtone;
     Vibrator v;
     int minTime;
@@ -46,13 +46,16 @@ public class CallMe extends AppCompatActivity implements SensorEventListener {
     boolean startOrNot = false;
     boolean callingOrNot = false;
     boolean answeredOrNot = false;
-    int time[] = new int[pcl.getPlayerSize()];
+    Double time[] = new Double[pcl.getPlayerSize()];
     int turn = 0;
-
+    long tStart;
+    long tEnd;
+    long tDelta;
+    double elapsedSeconds;
 
     private Runnable pollTask = new Runnable() {
         public void run() {
-            showsensor();
+//            showWarning();
             if (startOrNot == true && sensor_info.proximity == 0) {
                 startOrNot = false;
                 waiting();
@@ -61,8 +64,6 @@ public class CallMe extends AppCompatActivity implements SensorEventListener {
                 calling();
                 if (callingOrNot == true && sensor_info.proximity > 0) {
                     calling();
-                    timeMill += 100;
-                    handler.postDelayed(this, 100);
                     answeredOrNot = true;
                 }
             }
@@ -75,15 +76,17 @@ public class CallMe extends AppCompatActivity implements SensorEventListener {
         }
     };
 
-    public void showsensor() {
-        textValue.setText(String.valueOf(sensor_info.proximity));
-    }
+//    public void showWarning() {
+//        if(sensor_info.proximity == 0 && startOrNot == true ) {
+//            warning.setVisibility(View.INVISIBLE);
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call_me);
-        ringtone = MediaPlayer.create(getApplicationContext(), R.raw.mock);
+        ringtone = MediaPlayer.create(getApplicationContext(), R.raw.sony_ericsson_ringtone);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -95,13 +98,14 @@ public class CallMe extends AppCompatActivity implements SensorEventListener {
         textName = findViewById(R.id.playerNameCallMe);
         textName.setText(pcl.getNextTurnPlayer().getPlayerName());
         nextPlayer = findViewById(R.id.nextPlayerCallMe);
-        textValue = findViewById(R.id.time);
-        textValue.setText(String.valueOf(sensor_info.proximity));
+//        textValue = findViewById(R.id.time);
+//        textValue.setText(String.valueOf(sensor_info.proximity));
         startBtn = findViewById(R.id.start);
-        seeWinner = findViewById(R.id.winnerIs);
+        warning = findViewById(R.id.warningCallMe);
+        seeWinner = findViewById(R.id.seeWinner);
 
         for (int i = 0; i < time.length; i++) {
-            time[i] = 0;
+            time[i] = 0.0;
         }
     }
 
@@ -136,12 +140,14 @@ public class CallMe extends AppCompatActivity implements SensorEventListener {
 
     public void start(View view) {
         startBtn.setVisibility(View.INVISIBLE);
+        warning.setVisibility(View.VISIBLE);
         startOrNot = true;
         timeMill = 0;
     }
 
     public void waiting() {
         int WaitingTime = rn.nextInt((MaxWaitingTime) - (1500) + 1) + (1500);
+        warning.setVisibility(View.INVISIBLE);
         if (sensor_info.proximity == 0) {
             try {
                 TimeUnit.MILLISECONDS.sleep(WaitingTime);
@@ -155,8 +161,10 @@ public class CallMe extends AppCompatActivity implements SensorEventListener {
     public void calling() {
         //add ringtone
         if(!isPlaying) {
+            tStart = System.currentTimeMillis();
             isPlaying = true;
             ringtone.start();
+            ringtone.setLooping(true);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
@@ -166,29 +174,37 @@ public class CallMe extends AppCompatActivity implements SensorEventListener {
     }
 
     public void answer() {
-        time[turn] = timeMill;
         if (turn == pcl.getPlayerSize() - 1) {
+            nextPlayer.setVisibility(View.GONE);
             seeWinner.setVisibility(View.VISIBLE);
+        } else {
+            nextPlayer.setVisibility(View.VISIBLE);
         }
         if(isPlaying) {
             isPlaying = false;
             ringtone.stop();
             ringtone.reset();
-            ringtone = MediaPlayer.create(getApplicationContext(), R.raw.mock);
+            ringtone = MediaPlayer.create(getApplicationContext(), R.raw.sony_ericsson_ringtone);
+
+            tEnd = System.currentTimeMillis();
+            tDelta = tEnd - tStart;
+            elapsedSeconds = tDelta / 1000.0;
+            time[turn] = elapsedSeconds;
+            System.out.println(elapsedSeconds);
         }
-//        isPlaying = false;
-//        System.out.println(isPlaying);
-        nextPlayer.setVisibility(View.VISIBLE);
-        textName.setText(String.valueOf(timeMill));
     }
 
-    public void findWinner(View view) {
-        System.out.println(123);
-        int sortArrayTime[] = time.clone();
+    public void findWinner(View v) {
+        Double sortArrayTime[] = time.clone();
         Arrays.sort(sortArrayTime);
         for (int i = 0; i < time.length; i++) {
             if (time[i] == sortArrayTime[0]) {
-                System.out.println(pcl.getPlayerById(i).getPlayerName());
+                pcl.setWinner(pcl.getPlayerById(i));
+                System.out.println(pcl.getWinner().getPlayerName());
+                sensorManager.unregisterListener(this);
+                hdr.removeCallbacks(pollTask);
+                Intent myIntent = new Intent(this, WinnerCallMe.class);
+                startActivity(myIntent);
             }
         }
     }

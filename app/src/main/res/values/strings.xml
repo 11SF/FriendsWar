@@ -4,15 +4,31 @@
     <string name="add_btn_label">+</string>
     <string name="next_btn_label">ต่อไป ></string>
     <string name="next_player_label">คนต่อไป ></string>
-    <string name="shake_it_btn_label">Shake it</string>
-    <string name="call_me_btn_label">Call me</string>
-    <string name="chichi_btn_label">ChiChi</string>
+    <string name="shake_it_btn_label">Soda Shake เขย่าขวดมหาสนุก</string>
+    <string name="call_me_btn_label">Ring Ring รับสายเร็วสิ</string>
+    <string name="chichi_btn_label">Order</string>
     <string name="chichi_add_order">เพิ่มคำสั่ง...</string>
     <string name="chichi_order">คำสั่งก็คือ...</string>
     <string name="play_game">เล่นเกม</string>
-    <string name="start">เริ่ม</string>
-    <string name="see">ดูผล</string>
+    <string name="start">เริ่มเกม</string>
+    <string name="see">แสดงผู้ชนะ</string>
     <string name="add_player_page">จัดการผู้เล่น</string>
+    <string name="tutorial_btn">วิธีการเล่น</string>
+    <string name="next_turn_soda">จบเทิร์น</string>
+    <string name="start_turn_soda">เริ่มเขย่า</string>
+    <string name="play_again_btn">เล่นอีกครั้ง</string>
+    <string name="go_to_menu_btn">กลับสู่หน้าหลัก</string>
 
+    <string name="add_order_btn">เพิ่มคำสั่งด้วยตัวเอง</string>
+    <string name="go_chichi">ใช้คำสั่งพื้นฐาน</string>
+    <string name="select_order_label">เลือกชุดคำสั่ง</string>
+    <string name="warning_call_me">กรุณาคว่ำโทรศัพท์ลงบนโต๊ะ</string>
 
+    <string name="tutorial_label">วิธีการเล่น</string>
+    <string name="t_soda_label">Soda Shake เขย่าขวดมหาสนุก</string>
+    <string name="b_soda">เกมนี้จะให้ผู้เล่นผลัดกันเขย่ามือถือซึ่งเปรียบเสมือนกำลังเขย่าขวดโซดา เมื่อเขย่าเสร็จแล้วก็ส่งต่อให้คนต่อไป ถ้าหากใครเขย่าจนขวดโซดาระเบิดคนนั้นจะเป็นผู้โชคร้าย</string>
+    <string name="t_ring_label">Ring Ring รับสายเร็วสิ</string>
+    <string name="b_ring">เกมนี้เป็นการจำลองการรับโทรศัพท์ โดยเมื่อกดเริ่มให้วางมือถือคว่ำไว้กับโต๊ะ รอให้สายเข้าแล้วหยิบขึ้นมาแนบหู ดูว่าใครเป็นคนที่รับสายเร็วที่สุดเป็นผู้ชนะ</string>
+    <string name="t_order_label">Order</string>
+    <string name="b_order">เกมนี้ผู้เล่นจะต้องทำตามคำสั่งที่สุ่มได้ โดยก่อนเริ่มเกมนี้เราจะต้องเพิ่มคำสั่งเพื่อที่จะเอาไปสุ่มในหน้าถัดไป โดยสามารถเพิ่มเอง หรือใช้คำสั่งที่มีมาให้ โดยเมื่อถึงตาผู้เล่นคนใด เขย่ามือถือเพื่อสุ่มคำสั่ง</string>
 </resources>

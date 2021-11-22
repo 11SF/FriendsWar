@@ -1,69 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DFDFDF"
     android:gravity="center"
-    android:orientation="vertical"
-    android:background="@color/purple"
+
+    android:paddingTop="50dp"
+    android:paddingBottom="50dp"
     tools:context=".CallMe">
 
-    <TextView
-        android:id="@+id/playerNameCallMe"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:textSize="20sp"
-        android:textColor="@color/white"/>
+        android:layout_gravity="bottom"
+        android:paddingStart="100dp"
+        android:paddingTop="100dp"
+        android:paddingEnd="100dp"
+        android:scaleType="fitEnd"
+        android:src="@drawable/ic_call_icon" />
 
-    <TextView
-
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:text="0"
-        android:textColor="@color/white"
-        />
-
-    <Button
-        android:id="@+id/start"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="0"
-        android:background="@android:color/transparent"
-        android:onClick="start"
-        android:text="@string/start"
-        android:textSize="30sp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/nextPlayerCallMe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="0"
-        android:background="@android:color/transparent"
-        android:onClick="nextPlayer"
-        android:text="@string/next_player_label"
-        android:textSize="20sp"
-        android:visibility="invisible" />
 
-    <Button
-        android:id="@+id/winnerIs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="0"
-        android:background="@android:color/transparent"
-        android:onClick="findWinner"
-        android:text="@string/see"
-        android:textSize="20sp"
-        android:visibility="invisible" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/playerNameCallMe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <!--    <TextView-->
+        <!--        android:id="@+id/playerNameCallMe"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_weight="0"-->
+        <!--        android:textColor="@color/white"-->
+        <!--        android:textSize="20sp" />-->
+
+        <!--    <TextView-->
+        <!--        android:id="@+id/time"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_weight="0"-->
+        <!--        android:text="0"-->
+        <!--        android:textColor="@color/white" />-->
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="0"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:onClick="start"
+            android:text="@string/start"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/nextPlayerCallMe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="0"
+            android:background="@android:color/transparent"
+            android:onClick="nextPlayer"
+            android:text="@string/next_player_label"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/seeWinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="0"
+            android:background="@android:color/transparent"
+            android:onClick="findWinner"
+            android:text="@string/see"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/warningCallMe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/warning_call_me"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:visibility="invisible" />
+
+        <!--    <Button-->
+        <!--        android:id="@+id/winnerIs"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_gravity="bottom|right"-->
+        <!--        android:layout_marginRight="5dp"-->
+        <!--        android:layout_marginBottom="5dp"-->
+        <!--        android:layout_weight="0"-->
+        <!--        android:background="@android:color/transparent"-->
+        <!--        android:onClick="findWinner"-->
+        <!--        android:text="@string/see"-->
+        <!--        android:textSize="20sp"-->
+        <!--        android:visibility="invisible" />-->
+    </LinearLayout>
+</FrameLayout>

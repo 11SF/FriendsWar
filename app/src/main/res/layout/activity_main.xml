@@ -7,12 +7,12 @@
     android:background="@color/purple"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/add_player_page"
-        android:onClick="toAddPlayerPage" />
+    <!--    <Button-->
+<!--        android:id="@+id/button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/add_player_page"-->
+<!--        android:onClick="toAddPlayerPage" />-->
 
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="wrap_content"
@@ -20,6 +20,19 @@
         android:layout_marginTop="-20dp"
         android:scaleType="fitStart"
         android:src="@drawable/main_logo" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@color/white"
+        android:onClick="toAddPlayerPage"
+        android:scaleType="fitXY"
+        android:tint="@color/white"
+        app:srcCompat="@drawable/ic_account_edit"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,7 +80,22 @@
             android:text="@string/chichi_btn_label"
             android:textColor="#0D47A1"
             android:onClick="chichiBtn"/>
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        android:onClick="toTutorialPage"
+        android:text="@string/tutorial_btn"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:icon="@android:drawable/ic_menu_info_details"
+        app:iconTint="@color/white" />
 
 
 </FrameLayout>
